@@ -3,8 +3,8 @@ backend:
   turbo_site_id: 96710b32-a65d-4182-9037-edb5bb82f888
   branch: main
 
-media_folder: "uploads"
-public_folder: "/uploads"
+media_folder: "image"
+public_folder: "/image"
 
 locale: "ar"
 
