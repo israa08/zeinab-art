@@ -1550,6 +1550,9 @@ function renderFavorites(){
 }
 
 /* بطاقات الرسمات */
+  function hasWatermark(id){
+  return true;
+}
 function createProductCard(p){
   const price=language==="ar"?p.priceAR:p.priceFA;
   const currency=language==="ar"?"د.ع":"تومان";
