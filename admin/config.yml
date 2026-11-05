@@ -1,0 +1,48 @@
+backend:
+  name: turbo-github
+  turbo_site_id: 96710b32-a65d-4182-9037-edb5bb82f888
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+locale: "ar"
+
+collections:
+  - name: "products"
+    label: "اللوحات"
+    files:
+      - name: "products"
+        label: "إدارة اللوحات"
+        file: "content/products.json"
+        fields:
+          - label: "اللوحات"
+            name: "products"
+            widget: "list"
+            fields:
+              - label: "رقم اللوحة"
+                name: "id"
+                widget: "number"
+              - label: "التصنيفات"
+                name: "key"
+                widget: "list"
+                field:
+                  label: "التصنيف"
+                  name: "category"
+                  widget: "select"
+                  options:
+                    - "ArtDesigns"
+                    - "Nature"
+                    - "CharactersCars"
+              - label: "السعر بالتومان"
+                name: "priceFA"
+                widget: "number"
+              - label: "السعر بالدينار العراقي"
+                name: "priceAR"
+                widget: "number"
+              - label: "صورة اللوحة"
+                name: "image"
+                widget: "image"
+              - label: "حجم اللوحة"
+                name: "size"
+                widget: "string"
