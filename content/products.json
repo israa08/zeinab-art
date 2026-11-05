@@ -263,7 +263,9 @@
       "size": "80*60"
     },
     {
-      "key": [],
+      "key": [
+        "ArtDesigns"
+      ],
       "image": "/image/photo_2026-11-04_00-45-55.jpg",
       "priceAR": 78,
       "priceFA": 98,
