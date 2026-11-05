@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta name="google-site-verification" content="XdaW6BmDDbdHl4J0jinuvq6IcS0YT-DeU_eYG62TS6E" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>ZEINAB ART | متجر اللوحات الفنية والرسم حسب الطلب</title>
+
+<meta name="description" content="اكتشف عالم ZEINAB ART للوحات الفنية والرسم اليدوي. تصفحي أحدث الرسومات واطلب رسمة خاصة من تصميمك.">
+
+<meta name="keywords" content="ZEINAB ART, لوحات فنية, رسم يدوي, لوحات حسب الطلب, paintings, custom art">
+
+<meta name="author" content="ZEINAB ART">
+<meta property="og:title" content="ZEINAB ART | متجر اللوحات الفنية">
+<meta property="og:description" content="اكتشف لوحاتي الفنية واطلب رسمة خاصة من تصميمك.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zeinabart1.netlify.app/">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --blue:#dff3fb;
+  --pink:#c58da3;
+  --pink-light:#f8e8ef;
+  --ink:#413944;
+  --white:#fffdfd;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Cairo',sans-serif;
+  background:#fffaf8;
+  color:var(--ink)
+}
+
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+.topbar{
+  background:var(--blue);
+  letter-spacing:1px;
+  padding:12px;
+  text-align:center;
+  font-size:12px
+}
+
+.sticky-header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:#fffaf8;
+  box-shadow:0 3px 12px #00000008;
+}
+
+header{
+  padding:22px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  background:white;
+  border-bottom:1px solid #eadfe3;
+}
+
+.logo{
+  font-family:Georgia,serif;
+  font-size:38px;
+  font-weight:800;
+  color:var(--pink);
+  letter-spacing:3px
+}
+
+.logo span{color:#83b9d1}
+
+.actions{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  flex-wrap:wrap
+}
+
+.btn{
+  border:0;
+  border-radius:25px;
+  padding:9px 17px;
+  background:var(--pink-light);
+  color:var(--ink)
+}
+
+.btn.primary{
+  background:var(--pink);
+  color:white
+}
+
+.header-search{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  position:relative;
+}
+
+.search-icon-btn{
+  width:40px;
+  height:40px;
+  flex-shrink:0;
+  border:0;
+  border-radius:50%;
+  background:var(--pink-light);
+  color:var(--pink);
+  font-size:21px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.header-search input{
+  width:0;
+  opacity:0;
+  padding:0;
+  border:0;
+  outline:none;
+  transition:all .3s ease;
+  border-radius:25px;
+  background:white;
+  color:var(--ink);
+  pointer-events:none;
+}
+
+.header-search.open input{
+  width:175px;
+  opacity:1;
+  padding:9px 13px;
+  border:1px solid #ead5df;
+  pointer-events:auto;
+}
+
+.header-search input:focus{border-color:var(--pink)}
+
+nav{
+  display:flex;
+  justify-content:center;
+  gap:23px;
+  padding:17px 5%;
+  overflow-x:auto;
+  white-space:nowrap;
+  background:#fffaf8;
+  border-bottom:1px solid #f2edf0;
+}
+
+nav button{
+  background:none;
+  border:0;
+  color:#665966
+}
+
+nav button:hover{color:var(--pink)}
+
+.hero{
+  margin:35px auto;
+  width:90%;
+  min-height:480px;
+  border-radius:4px;
+  overflow:hidden;
+  position:relative;
+  background:#e7f3f5
+}
+
+.slides{
+  position:relative;
+  height:480px
+}
+
+.slide{
+  position:absolute;
+  inset:0;
+  opacity:0;
+  transition:opacity 1s ease;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  padding:45px 8%;
+  gap:45px
+}
+
+.slide.active{opacity:1}
+
+.slide-image-frame{
+  width:100%;
+  height:365px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden
+}
+
+.slide-image-frame img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  display:block;
+  border:0;
+  border-radius:0;
+  box-shadow:none
+}
+
+.slide-copy h1{
+  font-family:Georgia,serif;
+  font-size:clamp(34px,5vw,60px);
+  line-height:1.4;
+  color:#493d48
+}
+
+.slide-copy p{
+  color:#766a78;
+  font-size:15px;
+  line-height:2.2;
+  max-width:390px
+}
+
+.slide-copy .btn{margin-top:12px}
+
+.dots{
+  position:absolute;
+  bottom:15px;
+  left:0;
+  right:0;
+  display:flex;
+  justify-content:center;
+  gap:8px
+}
+
+.dot{
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  border:0;
+  background:#b8b3ba;
+  padding:0
+}
+
+.dot.active{
+  background:var(--pink);
+  width:23px;
+  border-radius:8px
+}
+
+section{padding:30px 6%}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:35px
+}
+
+.section-heading h2{
+  font-family:Georgia,serif;
+  font-size:30px;
+  letter-spacing:1px;
+  margin-bottom:5px
+}
+
+.section-heading p{
+  color:#8a7b88;
+  font-size:14px
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px
+}
+
+.product{
+  border:1px solid #f1e9ee;
+  border-radius:3px;
+  overflow:hidden;
+  background:white;
+  transition:.25s;
+  position:relative
+}
+
+.product:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 28px #79566b12
+}
+
+.product-image-wrap{
+  width:100%;
+  aspect-ratio:4/5;
+}
+
+.product-image-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:0
+}
+
+.product-info{padding:13px}
+
+.artwork-code{
+  text-align:center;
+  color:var(--pink);
+  font-size:16px;
+  font-weight:800;
+  letter-spacing:1px;
+  margin:3px 0 5px;
+  direction:ltr
+}
+
+.price{
+  color:#b47790;
+  font-weight:700;
+  margin-bottom:8px;
+  text-align:center
+}
+
+.size{
+  font-size:13px;
+  color:#766a78;
+  margin-bottom:12px;
+  direction:ltr;
+  text-align:center
+}
+
+.product-info .btn{
+  width:100%;
+  font-size:13px
+}
+
+.favorite-btn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:2;
+  width:39px;
+  height:39px;
+  border:0;
+  border-radius:50%;
+  background:#ffffffed;
+  color:#b47790;
+  font-size:23px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 2px 8px #00000018
+}
+
+.favorite-btn.active{color:#d6336c}
+.favorite-btn:hover{transform:scale(1.08)}
+
+.search-message{
+  grid-column:1/-1;
+  text-align:center;
+  color:#887d87;
+  padding:25px 10px
+}
+
+.custom{
+  border-radius:3px;
+  background:#e5f2f5;
+  padding:45px 25px;
+  text-align:center
+}
+
+.custom p{line-height:2}
+
+.contact-area{
+  margin-top:18px;
+  padding:24px 15px;
+  text-align:center;
+  background:#fff;
+  border:1px solid #f0e1e8;
+  border-radius:14px
+}
+
+.contact-area p{
+  margin:0 0 13px;
+  color:#665966;
+  font-size:15px
+}
+
+.instagram-link{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:11px 24px;
+  border-radius:30px;
+  color:white;
+  text-decoration:none;
+  font-weight:700;
+  background:linear-gradient(45deg,#feda75,#fa7e1e,#d62976,#962fbf,#4f5bd5);
+  transition:.2s
+}
+
+.instagram-link:hover{
+  transform:translateY(-3px);
+  box-shadow:0 7px 18px #c58da355
+}
+
+.instagram-link svg{
+  width:22px;
+  height:22px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:2
+}
+
+footer{
+  text-align:center;
+  background:#f7e9ee;
+  padding:27px 15px;
+  font-size:13px
+}
+
+/* نافذة الإبلاغ عن مشكلة */
+.report-overlay{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  background:rgba(45,34,43,.58);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:15px
+}
+
+.report-overlay.open{display:flex}
+
+.report-modal{
+  position:relative;
+  width:100%;
+  max-width:430px;
+  background:#fffafc;
+  border:1px solid #f0dce5;
+  border-radius:18px;
+  padding:25px 18px;
+  box-shadow:0 15px 50px #38253530
+}
+
+.report-modal h2{
+  text-align:center;
+  color:#9b6880;
+  margin:8px 0 18px
+}
+
+.report-modal textarea{
+  display:block;
+  width:100%;
+  min-height:130px;
+  resize:vertical;
+  border:1px solid #e9dce3;
+  border-radius:10px;
+  padding:12px;
+  font:inherit;
+  background:white;
+  color:var(--ink);
+  margin-bottom:14px
+}
+
+.report-modal .btn{width:100%}
+
+.report-close{
+  position:absolute;
+  top:10px;
+  left:12px;
+  width:34px;
+  height:34px;
+  border:0;
+  border-radius:50%;
+  background:var(--pink-light);
+  color:#9b607a;
+  font-size:23px
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background:#241b2855;
+  z-index:100;
+  display:none
+}
+
+.overlay.open{display:block}
+
+.drawer{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:min(390px,92vw);
+  background:white;
+  padding:22px;
+  overflow-y:auto
+}
+
+html[dir="rtl"] .drawer{left:0}
+html[dir="ltr"] .drawer{right:0}
+
+.drawer-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:12px 0;
+  border-bottom:1px solid #eee
+}
+
+.cart-item button{
+  border:0;
+  background:none;
+  color:#a44e70
+}
+
+.cart-image-wrap{
+  width:65px;
+  height:75px;
+  flex-shrink:0;
+  border-radius:5px;
+}
+
+.cart-image-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  border-radius:5px
+}
+
+.total{
+  font-weight:800;
+  padding:18px 0
+}
+
+.empty{
+  color:#887d87;
+  text-align:center;
+  padding:25px 0
+}
+
+#customOrderForm{text-align:start}
+
+#customOrderForm form{
+  display:flex;
+  flex-direction:column;
+  gap:10px
+}
+
+#customOrderForm label{
+  display:block;
+  margin-top:12px;
+  font-weight:bold
+}
+
+#customOrderForm input,
+#customOrderForm textarea{
+  display:block;
+  width:100%;
+  box-sizing:border-box;
+  padding:12px;
+  margin-bottom:8px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  font:inherit
+}
+
+.painting-request{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:18px;
+  margin:15px 0;
+  border:1px solid #e5cbdc;
+  border-radius:14px;
+  background:#fffafd
+}
+
+.checkout-overlay{
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  background:rgba(45,34,43,.58);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:15px
+}
+
+.checkout-overlay.open{display:flex}
+
+.checkout-modal{
+  width:100%;
+  max-width:530px;
+  max-height:92vh;
+  overflow-y:auto;
+  background:#fffafc;
+  border:1px solid #f0dce5;
+  border-radius:18px;
+  padding:23px;
+  position:relative;
+  box-shadow:0 15px 50px #38253530;
+  animation:checkoutAppear .25s ease
+}
+
+@keyframes checkoutAppear{
+  from{opacity:0;transform:translateY(15px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.checkout-close{
+  position:absolute;
+  top:13px;
+  left:15px;
+  width:36px;
+  height:36px;
+  border:0;
+  border-radius:50%;
+  background:var(--pink-light);
+  color:#9b607a;
+  font-size:24px;
+  line-height:1
+}
+
+.checkout-title{
+  text-align:center;
+  color:#9b6880;
+  font-size:24px;
+  margin:4px 0 22px
+}
+
+.checkout-section-title{
+  color:#98677e;
+  font-size:17px;
+  margin:15px 0 10px;
+  border-bottom:1px solid #f0dce5;
+  padding-bottom:8px
+}
+
+.checkout-fields{
+  background:white;
+  border:1px solid #f1e4ea;
+  border-radius:13px;
+  padding:15px
+}
+
+.checkout-fields label{
+  display:block;
+  font-size:13px;
+  font-weight:700;
+  margin:9px 0 5px;
+  color:#665966
+}
+
+.checkout-fields input,
+.checkout-fields textarea{
+  display:block;
+  width:100%;
+  border:1px solid #e9dce3;
+  border-radius:9px;
+  padding:11px;
+  background:#fffafc;
+  color:var(--ink);
+  outline:none;
+  font:inherit;
+  font-size:14px
+}
+
+.checkout-fields input:focus,
+.checkout-fields textarea:focus{border-color:var(--pink)}
+
+.checkout-fields textarea{
+  min-height:75px;
+  resize:vertical
+}
+
+.order-details-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px
+}
+
+.order-detail-card{
+  background:white;
+  border:1px solid #f0dce5;
+  border-radius:12px;
+  padding:13px
+}
+
+.order-detail-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:9px;
+  color:#8f6077;
+  font-weight:700
+}
+
+.order-code{
+  color:#a86f88;
+  background:#f9eaf0;
+  border-radius:20px;
+  padding:3px 12px;
+  direction:ltr;
+  font-weight:800
+}
+
+.order-detail-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:5px 0;
+  font-size:13px
+}
+
+.order-detail-row span:first-child{color:#827582}
+
+.order-detail-row strong{
+  color:#594c59;
+  direction:ltr;
+  text-align:left
+}
+
+.checkout-total{
+  background:#eaf5f7;
+  border:1px solid #d7eaf0;
+  border-radius:12px;
+  padding:15px;
+  margin-top:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px
+}
+
+.checkout-total span{
+  font-weight:700;
+  color:#665966
+}
+
+.checkout-total strong{
+  color:#a66d85;
+  font-size:19px;
+  direction:ltr;
+  text-align:left
+}
+
+.checkout-submit{
+  width:100%;
+  margin-top:16px;
+  padding:13px;
+  border:0;
+  border-radius:25px;
+  background:var(--pink);
+  color:white;
+  font-weight:700
+}
+
+.checkout-submit:hover{background:#b77c96}
+
+.image-viewer{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+  padding:20px
+}
+
+.large-image-wrap{
+  position:relative;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:fit-content;
+  max-width:95%;
+  max-height:90vh;
+  overflow:hidden;
+  border-radius:12px;
+}
+
+.large-image-wrap img{
+  display:block;
+  max-width:100%;
+  max-height:90vh;
+  object-fit:contain;
+  border-radius:12px;
+  cursor:zoom-out
+}
+
+.close-image{
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:45px;
+  height:45px;
+  border:none;
+  border-radius:50%;
+  background:#e8a9c6;
+  color:white;
+  font-size:32px;
+  font-weight:bold;
+  cursor:pointer;
+  z-index:10000
+}
+
+.watermark-wrap{
+  position:relative;
+  overflow:hidden;
+}
+
+.watermark-wrap::after{
+  content:"art.ze_roses";
+  position:absolute;
+  bottom:22%;
+  left:50%;
+  transform:translateX(-50%);
+  color:white;
+  font-family:Georgia,serif;
+  font-size:27px;
+  font-weight:bold;
+  font-style:italic;
+  opacity:.42;
+  text-shadow:1px 1px 4px rgba(0,0,0,.5);
+  pointer-events:none;
+  z-index:5;
+  white-space:nowrap;
+  letter-spacing:1.5px;
+}
+
+@media(max-width:700px){
+  header{padding:12px 4%}
+  .logo{font-size:25px}
+  .hero{
+    width:94%;
+    min-height:440px;
+    margin:20px auto
+  }
+  .slides{height:440px}
+  .slide{
+    grid-template-columns:1fr;
+    padding:20px 7%;
+    gap:10px;
+    text-align:center
+  }
+  .slide-image-frame{
+    width:100%;
+    height:220px;
+    grid-row:1;
+    margin:0 auto
+  }
+  .slide-image-frame img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    object-position:center;
+    border:0;
+    border-radius:0;
+    box-shadow:none
+  }
+  .slide-copy h1{
+    font-size:29px;
+    margin:5px 0
+  }
+  .slide-copy p{
+    margin:5px 0;
+    font-size:13px
+  }
+  .products{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:11px
+  }
+  section{padding:25px 4%}
+  nav{
+    gap:17px;
+    padding:12px 4%;
+    justify-content:flex-start
+  }
+  .section-heading h2{font-size:25px}
+  .checkout-modal{
+    padding:19px 14px;
+    max-height:94vh
+  }
+  .checkout-title{
+    font-size:21px;
+    padding:0 25px
+  }
+  .checkout-total strong{font-size:16px}
+  .actions{gap:5px}
+  .actions .btn{
+    padding:8px 11px;
+    font-size:12px
+  }
+  .search-icon-btn{
+    width:36px;
+    height:36px;
+    font-size:19px
+  }
+  .header-search.open input{
+    width:120px;
+    font-size:12px;
+    padding:8px 10px
+  }
+}
+#reportProblemButton{
+  display:block;
+  width:fit-content;
+  min-width:190px;
+  margin:20px auto;
+  padding:13px 24px;
+  background:#c87999;
+  color:#ffffff;
+  border:2px solid #c87999;
+  border-radius:30px;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:0 5px 15px rgba(200,121,153,.3);
+  transition:.2s;
+}
+
+#reportProblemButton:hover{
+  background:#a95e7d;
+  border-color:#a95e7d;
+  transform:translateY(-2px);
+}
+html,
+body,
+* {
+  touch-action: manipulation;
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar" id="announcement">
+  مرحباً بك في عالم ZEINAB ART للفن والرسم ♡
+</div>
+
+<div class="sticky-header">
+  <header>
+    <div class="logo">ZEINAB ART</div>
+
+    <div class="actions">
+      <div class="header-search" id="headerSearch">
+        <input
+          type="search"
+          id="artworkSearch"
+          placeholder="اكتب كود اللوحة"
+          oninput="searchByCode()"
+          aria-label="Search artwork by code"
+        >
+        <button
+          class="search-icon-btn"
+          type="button"
+          onclick="toggleSearch()"
+          aria-label="Search">
+          🔍
+        </button>
+      </div>
+
+      <button class="btn" id="languageBtn" onclick="toggleLanguage()">فارسی</button>
+
+      <button class="btn" onclick="openFavorites()">
+        <span id="favoritesLabel">المفضلة</span>
+        ( <span id="favoritesCount">0</span> )
+      </button>
+
+      <button class="btn primary" onclick="openCart()">
+        <span id="cartLabel">السلة</span>
+        (<span id="cartCount">0</span>)
+      </button>
+    </div>
+  </header>
+
+  <nav id="nav"></nav>
+</div>
+
+<main>
+  <div class="hero">
+    <div class="slides" id="slides"></div>
+    <div class="dots" id="dots"></div>
+  </div>
+
+  <section id="collection">
+    <div class="section-heading">
+      <h2 id="productsTitle">أحدث الرسمات</h2>
+      <p id="productsSubtitle">كل رسمة تحمل حكاية مختلفة</p>
+    </div>
+    <div class="products" id="latestProducts"></div>
+    <div class="products" id="products" style="display:none"></div>
+  </section>
+
+  <section>
+    <div class="custom">
+      <h2 id="customTitle">هل عندك فكرة لرسمة خاصة؟</h2>
+      <p id="customText">اختار فكرتك، وسنرتب تفاصيل طلب الرسم الخاص بك.</p>
+      <button class="btn primary" onclick="customOrder()" id="customBtn">اطلب رسمة خاصة</button>
+    </div>
+
+    <div class="contact-area">
+      <p id="contactText">للطلب والاستفسار تواصلوا معنا عبر إنستغرام</p>
+      <a class="instagram-link"
+         href="https://www.instagram.com/art.ze_roses/"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="Visit ZEINAB ART Instagram page">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"></circle>
+        </svg>
+        <span>Instagram</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="logo">ZEINAB ART</div>
+  <p id="footerText">صُنع بحب لكل من يرى العالم بالفن ♡</p>
+  <button
+    type="button"
+    class="btn"
+    id="reportProblemButton"
+    onclick="openReportProblem()">
+    الإبلاغ عن مشكلة
+  </button>
+</footer>
+
+<!-- نافذة الإبلاغ عن مشكلة -->
+<div class="report-overlay" id="reportOverlay">
+  <div class="report-modal">
+    <button
+      type="button"
+      class="report-close"
+      onclick="closeReportProblem()">×</button>
+    <h2 id="reportTitle">الإبلاغ عن مشكلة</h2>
+    <form id="reportForm">
+      <textarea
+        id="reportMessage"
+        required
+        placeholder="اكتب وصف المشكلة التي واجهتك في الموقع..."></textarea>
+      <button
+        type="submit"
+        class="btn primary"
+        id="sendReportButton">
+        إرسال عبر واتساب
+      </button>
+    </form>
+  </div>
+</div>
+<div class="overlay" id="cartOverlay" onclick="overlayClick(event)">
+  <div class="drawer">
+    <div class="drawer-head">
+      <h2 id="drawerTitle">سلة المشتريات</h2>
+      <button class="btn" onclick="closeCart()">✕</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="total" id="cartTotal"></div>
+    <button class="btn primary" style="width:100%" onclick="checkout()" id="checkoutBtn">إرسال طلب الشراء</button>
+  </div>
+</div>
+
+<div class="overlay" id="favoritesOverlay" onclick="favoritesOverlayClick(event)">
+  <div class="drawer">
+    <div class="drawer-head">
+      <h2 id="favoritesDrawerTitle">المفضلة</h2>
+      <button class="btn" onclick="closeFavorites()">✕</button>
+    </div>
+    <div class="products" id="favoritesItems" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:10px"></div>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-modal">
+    <button type="button" class="checkout-close" onclick="closeCheckout()">×</button>
+    <h2 class="checkout-title" id="checkoutTitle">إتمام الطلب</h2>
+
+    <form id="checkoutForm">
+      <h3 class="checkout-section-title" id="buyerInfoTitle">معلومات المشتري</h3>
+
+      <div class="checkout-fields">
+        <label id="buyerNameLabel" for="buyerName">الاسم الكامل</label>
+        <input type="text" id="buyerName" required>
+
+        <label id="buyerPhoneLabel" for="buyerPhone">رقم الهاتف</label>
+        <input
+          type="tel"
+          id="buyerPhone"
+          required
+          maxlength="11"
+          minlength="11"
+          pattern="[0-9]{11}"
+          inputmode="numeric"
+          oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11)"
+        >
+
+        <label id="buyerAddressLabel" for="buyerAddress">العنوان بالتفصيل</label>
+        <textarea id="buyerAddress" required></textarea>
+
+        <label id="buyerHouseLabel" for="buyerHouse">رقم البيت أو الشقة</label>
+        <input type="text" id="buyerHouse" required>
+      </div>
+
+      <h3 class="checkout-section-title" id="buyerNotesTitle">ملاحظات</h3>
+
+      <div class="checkout-fields">
+        <label id="buyerNotesLabel" for="buyerNotes">ملاحظات إضافية (اختياري)</label>
+        <textarea
+          id="buyerNotes"
+          placeholder="اكتب أي ملاحظة تريد إضافتها للطلب..."
+        ></textarea>
+      </div>
+
+      <h3 class="checkout-section-title" id="orderInfoTitle">تفاصيل الطلب</h3>
+      <div class="order-details-list" id="checkoutOrderItems"></div>
+
+      <div class="checkout-total">
+        <span id="finalTotalLabel">المجموع الكلي</span>
+        <strong id="checkoutFinalTotal"></strong>
+      </div>
+
+      <button type="button" class="checkout-submit" id="sendCheckoutButton" onclick="sendCheckoutOrder()">
+        تأكيد وإرسال الطلب عبر الواتساب
+      </button>
+    </form>
+  </div>
+</div>
+
+<section id="customOrderForm" style="display:none;padding:25px;max-width:600px;margin:auto;direction:inherit">
+  <h2 id="customFormTitle"></h2>
+
+  <form id="customRequestForm">
+    <h3 class="checkout-section-title" id="customBuyerInfoTitle"></h3>
+
+    <label id="customNameLabel"></label>
+    <input type="text" id="customName" required>
+
+    <label id="customPhoneLabel"></label>
+    <input
+      type="tel"
+      id="customPhone"
+      required
+      maxlength="11"
+      minlength="11"
+      pattern="[0-9]{11}"
+      inputmode="numeric"
+      oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,11)"
+    >
+
+    <label id="customAddressLabel"></label>
+    <textarea id="customAddress" required></textarea>
+
+    <label id="customHouseLabel"></label>
+    <input type="text" id="customHouse" required>
+
+    <h3 class="checkout-section-title" id="customOrderDetailsTitle"></h3>
+    <div id="paintingRequests"></div>
+
+    <button type="button" class="btn" id="addPaintingButton" onclick="addPaintingRequest()"></button>
+    <button type="submit" class="btn primary" id="submitCustomButton"></button>
+    <button type="button" class="btn" id="closeCustomButton" onclick="closeCustomOrder()"></button>
+  </form>
+</section>
+
+<div class="image-viewer" id="imageViewer" onclick="closeImageViewer()">
+  <button class="close-image" onclick="event.stopPropagation();closeImageViewer()">×</button>
+  <div class="large-image-wrap" id="largeImageWrap">
+    <img id="largeImage" src="" alt="ZEINAB Art">
+  </div>
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "989307844459";
+const INSTAGRAM_PAGE = "https://www.instagram.com/art.ze_roses/";
+
+const translations = {
+  ar:{
+    announcement:"مرحباً بك في عالم ZEINAB ART للفن والرسم ♡",
+    language:"فارسی",
+    cart:"السلة",
+    favorites:"المفضلة",
+    favoritesEmpty:"لا توجد رسمات في المفضلة حالياً",
+    nav:["الرئيسية","كل الرسمات","تصاميم فنية","الطبيعة والمناظر","شخصيات وسيارات","حسب الطلب"],
+    cats:["كل الرسمات","تصاميم فنية","الطبيعة والمناظر","شخصيات وسيارات"],
+    productsTitle:"أحدث الرسمات",
+    productsSubtitle:"كل رسمة تحمل حكاية مختلفة",
+    customTitle:"هل عندك فكرة لرسمة خاصة؟",
+    customText:"اختار فكرتك، وسنرتب تفاصيل طلب الرسم الخاص بك.",
+    customBtn:"اطلب رسمة خاصة",
+    contactText:"للطلب والاستفسار تواصلوا معنا عبر إنستغرام",
+    footerText:"صُنع بحب لكل من يرى العالم بالفن ♡",
+
+    reportProblem:"الإبلاغ عن مشكلة",
+    reportProblemTitle:"الإبلاغ عن مشكلة",
+    reportProblemPlaceholder:"اكتبي وصف المشكلة التي واجهتك في الموقع...",
+    sendReport:"إرسال عبر واتساب",
+    reportEmpty:"يرجى كتابة وصف المشكلة أولاً",
+    reportMessageTitle:"بلاغ عن مشكلة في موقع ZEINAB ART",
+
+    add:"أضيف إلى السلة",
+    drawerTitle:"سلة المشتريات",
+    empty:"السلة فارغة حالياً",
+    remove:"حذف",
+    total:"المجموع",
+    checkout:"إرسال طلب الشراء",
+    searchPlaceholder:"اكتب كود اللوحة",
+    searchResult:"نتيجة البحث عن",
+    noSearch:"لم يتم العثور على رسمة بهذا الرقم",
+    favoriteRemove:"إزالة من المفضلة",
+    favoriteAdd:"إضافة إلى المفضلة",
+
+    slides:[
+      ["الفن يبدأ من هنا","اكتشف رسومات مميزة تضيف لمسة من الجمال إلى عالمك.","تصفح الرسمات"],
+      ["ألوان تحكي حكايتك","كل لوحة تحمل إحساساً مختلفاً وتفصيلاً يستحق التأمل.","اكتشف المجموعة"],
+      ["رسمة من اختيارك","حوّل فكرتك إلى لوحة فنية خاصة بك.","اطلب رسمتك"]
+    ],
+
+    checkoutTitle:"إتمام الطلب",
+    buyerInfo:"معلومات المشتري",
+    buyerName:"الاسم الكامل",
+    buyerPhone:"رقم الهاتف",
+    buyerAddress:"العنوان بالتفصيل",
+    buyerHouse:"رقم البيت أو الشقة",
+    buyerNotes:"ملاحظات",
+    buyerNotesPlaceholder:"اكتب أي ملاحظة تريد إضافتها للطلب (اختياري)",
+    orderInfo:"تفاصيل الطلب",
+    painting:"الرسمة",
+    code:"كود الرسمة",
+    size:"القياس",
+    price:"السعر",
+    finalTotal:"المجموع الكلي",
+    sendCheckout:"تأكيد وإرسال الطلب عبر الواتساب",
+
+    customFormTitle:"طلب رسمة خاصة",
+    customBuyerInfo:"معلومات المشتري",
+    customOrderDetails:"تفاصيل الرسمة المطلوبة",
+    customName:"الاسم الكامل",
+    customPhone:"رقم الهاتف",
+    customAddress:"العنوان بالتفصيل",
+    customHouse:"رقم البيت أو الشقة",
+    customDescription:"وصف الرسمة المطلوبة",
+    customSize:"الحجم المطلوب",
+    customColors:"الألوان المفضلة",
+    customImages:"إرفاق الصور المرجعية",
+    customNotes:"ملاحظات إضافية",
+    addAnother:"إضافة طلب آخر +",
+    submitCustom:"تأكيد وإرسال الطلب عبر الواتساب",
+    close:"إغلاق",
+    fillAll:"يرجى ملء جميع معلومات المشتري والحقول المطلوبة",
+    customOrderMessage:"تفاصيل طلب الرسمة الخاصة"
+  },
+
+  fa:{
+    announcement:"به دنیای هنر و نقاشی ZEINAB ART خوش آمدید ♡",
+    language:"العربية",
+    cart:"سبد خرید",
+    favorites:"علاقه‌مندی‌ها",
+    favoritesEmpty:"هنوز نقاشی‌ای به علاقه‌مندی‌ها اضافه نشده است",
+    nav:["صفحه اصلی","همه نقاشی‌ها","طرح‌های هنری","طبیعت و منظره‌ها","شخصیت‌ها و ماشین‌ها","سفارش اختصاصی"],
+    cats:["همه نقاشی‌ها","طرح‌های هنری","طبیعت و منظره‌ها","شخصیت‌ها و ماشین‌ها"],
+    productsTitle:"جدیدترین نقاشی‌ها",
+    productsSubtitle:"هر اثر داستانی متفاوت دارد",
+    customTitle:"ایده‌ای برای یک نقاشی اختصاصی داری؟",
+    customText:"ایده‌ات را انتخاب کن تا جزئیات سفارش را هماهنگ کنیم.",
+    customBtn:"سفارش نقاشی اختصاصی",
+    contactText:"برای سفارش و پرسش از طریق اینستاگرام با ما در ارتباط باشید",
+    footerText:"با عشق برای کسانی که دنیا را با هنر می‌بینند ♡",
+
+    reportProblem:"گزارش مشکل",
+    reportProblemTitle:"گزارش مشکل",
+    reportProblemPlaceholder:"مشکلی را که با آن مواجه شدید بنویسید...",
+    sendReport:"ارسال گزارش از طریق واتساپ",
+    reportEmpty:"لطفاً ابتدا مشکل را بنویسید",
+    reportMessageTitle:"گزارش مشکل در وب‌سایت ZEINAB ART",
+
+    add:"افزودن به سبد",
+    drawerTitle:"سبد خرید",
+    empty:"سبد خرید خالی است",
+    remove:"حذف",
+    total:"مجموع",
+    checkout:"ارسال سفارش خرید",
+    searchPlaceholder:"کد تابلو را وارد کنید",
+    searchResult:"نتیجه جستجو برای",
+    noSearch:"نقاشی‌ای با این کد پیدا نشد",
+    favoriteRemove:"حذف از علاقه‌مندی‌ها",
+    favoriteAdd:"افزودن به علاقه‌مندی‌ها",
+
+    slides:[
+      ["هنر از اینجا آغاز می‌شود","نقاشی‌های خاص را کشف کن و به دنیایت زیبایی ببخش.","دیدن نقاشی‌ها"],
+      ["رنگ‌هایی با داستان تو","هر تابلو احساسی متفاوت و جزئیاتی دیدنی دارد.","دیدن مجموعه"],
+      ["نقاشی به انتخاب تو","ایده‌ات را به یک اثر هنری اختصاصی تبدیل کن.","سفارش نقاشی"]
+    ],
+
+    checkoutTitle:"تکمیل سفارش",
+    buyerInfo:"اطلاعات خریدار",
+    buyerName:"نام و نام خانوادگی",
+    buyerPhone:"شماره تماس",
+    buyerAddress:"آدرس کامل",
+    buyerHouse:"شماره خانه یا واحد",
+    buyerNotes:"توضیحات",
+    buyerNotesPlaceholder:"توضیحات دلخواه خود را برای سفارش بنویسید (اختیاری)",
+    orderInfo:"جزئیات سفارش",
+    painting:"نقاشی",
+    code:"کد نقاشی",
+    size:"اندازه",
+    price:"قیمت",
+    finalTotal:"مبلغ نهایی",
+    sendCheckout:"تأیید و ارسال سفارش از طریق واتساپ",
+
+    customFormTitle:"سفارش نقاشی اختصاصی",
+    customBuyerInfo:"اطلاعات خریدار",
+    customOrderDetails:"جزئیات نقاشی مورد نظر",
+    customName:"نام و نام خانوادگی",
+    customPhone:"شماره تماس",
+    customAddress:"آدرس کامل",
+    customHouse:"شماره خانه یا واحد",
+    customDescription:"توضیحات نقاشی مورد نظر",
+    customSize:"اندازه مورد نظر",
+    customColors:"رنگ‌های دلخواه",
+    customImages:"افزودن تصاویر مرجع",
+    customNotes:"توضیحات بیشتر",
+    addAnother:"افزودن سفارش دیگر +",
+    submitCustom:"تأیید و ارسال سفارش از طریق واتساپ",
+    close:"بستن",
+    fillAll:"لطفاً تمام اطلاعات خریدار و فیلدهای ضروری را تکمیل کنید",
+    customOrderMessage:"جزئیات سفارش نقاشی اختصاصی"
+  }
+};
+
+const categoriesData=[
+  {key:"All",emoji:"🎨"},
+  {key:"ArtDesigns",emoji:"🖼️"},
+  {key:"Nature",emoji:"🌿"},
+  {key:"CharactersCars",emoji:"🚗"}
+];
+
+const productsData=[
+  {id:1,key:["Nature","ArtDesigns"],priceFA:9890000,priceAR:25000,image:"image/1.jpg",size:"50*70"},
+  {id:2,key:"ArtDesigns",priceFA:1700000,priceAR:8000,image:"image/2.jpg",size:"33*24"},
+  {id:3,key:"ArtDesigns",priceFA:3500000,priceAR:13000,image:"image/3.jpg",size:"50*40"},
+  {id:4,key:"CharactersCars",priceFA:2560000,priceAR:6000,image:"image/4.jpg",size:"25*25"},
+  {id:5,key:"CharactersCars",priceFA:11400000,priceAR:25000,image:"image/5.jpg",size:"50*70"},
+  {id:6,key:"ArtDesigns",priceFA:14655000,priceAR:35000,image:"image/6.jpg",size:"80*60"},
+  {id:7,key:"ArtDesigns",priceFA:4560000,priceAR:31000,image:"image/7.jpg",size:"80*60"},
+  {id:8,key:"Nature",priceFA:9700000,priceAR:15500,image:"image/8.jpg",size:"40*60"},
+  {id:9,key:"ArtDesigns",priceFA:8650000,priceAR:16500,image:"image/9.jpg",size:"50*70"},
+  {id:10,key:"ArtDesigns",priceFA:3100000,priceAR:8500,image:"image/10.jpg",size:"40*30"},
+  {id:11,key:["Nature","ArtDesigns"],priceFA:9890000,priceAR:25000,image:"image/11.jpg",size:"50*70"},
+  {id:12,key:"ArtDesigns",priceFA:7300000,priceAR:13750,image:"image/12.jpg",size:"50*70"},
+  {id:13,key:"ArtDesigns",priceFA:8650000,priceAR:16500,image:"image/13.jpg",size:"50*70"},
+  {id:14,key:"ArtDesigns",priceFA:10300000,priceAR:29500,image:"image/14.jpg",size:"80*60"},
+  {id:15,key:"ArtDesigns",priceFA:8300000,priceAR:20750,image:"image/15.jpg",size:"80*60"},
+  {id:16,key:"Nature",priceFA:7300000,priceAR:30750,image:"image/16.jpg",size:"50*70"},
+  {id:17,key:"ArtDesigns",priceFA:8200000,priceAR:32500,image:"image/17.jpg",size:"80*60"},
+  {id:18,key:"CharactersCars",priceFA:2100000,priceAR:15500,image:"image/18.jpg",size:"30*40"},
+  {id:19,key:"CharactersCars",priceFA:1700000,priceAR:12500,image:"image/19.jpg",size:"30*40"},
+  {id:20,key:"Nature",priceFA:2500000,priceAR:11250,image:"image/20.jpg",size:"25*30"},
+  {id:21,key:"ArtDesigns",priceFA:3200000,priceAR:21500,image:"image/21.jpg",size:"40*40"},
+  {id:22,key:"ArtDesigns",priceFA:8300000,priceAR:28000,image:"image/22.jpg",size:"30*60"},
+  {id:23,key:"ArtDesigns",priceFA:10900000,priceAR:25500,image:"image/23.jpg",size:"80*60"},
+  {id:24,key:"ArtDesigns",priceFA:8400000,priceAR:25500,image:"image/24.jpg",size:"80*60"},
+  {id:25,key:"ArtDesigns",priceFA:7400000,priceAR:27000,image:"image/25.jpg",size:"60*90"},
+  {id:26,key:"ArtDesigns",priceFA:11300000,priceAR:33500,image:"image/26.jpg",size:"80*60"}
+];
+
+const watermarkedPaintings=[1,2,3,4,5,6,7,10,11,16,17,18,19,20,21];
+
+function hasWatermark(id){
+  return watermarkedPaintings.includes(Number(id));
+}
+
+let language="ar";
+let activeCategory="All";
+let showFullGallery=false;
+let slideIndex=0;
+let cart=[];
+let slideTimer;
+let paintingRequestCount=0;
+let searchCode="";
+let favorites=[];
+
+try{
+  const savedFavorites=JSON.parse(localStorage.getItem("zeinabArtFavorites")||"[]");
+  favorites=Array.isArray(savedFavorites)?savedFavorites:[];
+}catch(error){
+  favorites=[];
+}
+
+function t(){return translations[language]}
+
+function toggleSearch(){
+  const searchBox=document.getElementById("headerSearch");
+  const input=document.getElementById("artworkSearch");
+
+  searchBox.classList.toggle("open");
+
+  if(searchBox.classList.contains("open")){
+    input.focus();
+  }else{
+    searchCode="";
+    input.value="";
+    activeCategory="All";
+    showFullGallery=false;
+    render();
+  }
+}
+
+function normalizeDigits(value){
+  const digits={
+    "٠":"0","١":"1","٢":"2","٣":"3","٤":"4",
+    "٥":"5","٦":"6","٧":"7","٨":"8","٩":"9",
+    "۰":"0","۱":"1","۲":"2","۳":"3","۴":"4",
+    "۵":"5","۶":"6","۷":"7","۸":"8","۹":"9"
+  };
+
+  return String(value).replace(/[٠-٩۰-۹]/g,digit=>digits[digit]);
+}
+
+function normalizeSearch(value){
+  return normalizeDigits(value).replace(/#/g,"").replace(/\s/g,"").trim();
+}
+
+function searchByCode(){
+  const input=document.getElementById("artworkSearch");
+  searchCode=normalizeSearch(input.value);
+
+  activeCategory="All";
+  showFullGallery=searchCode!=="";
+
+  render();
+
+  if(searchCode){
+    document.getElementById("collection").scrollIntoView({behavior:"smooth"});
+  }
+}
+
+function clearSearch(){
+  searchCode="";
+  activeCategory="All";
+  showFullGallery=false;
+  document.getElementById("artworkSearch").value="";
+  render();
+}
+
+/* السلايدر */
+function renderSlides(){
+  const slideProducts=[
+    productsData[17],
+    productsData[2],
+    productsData[20]
+  ];
+
+  document.getElementById("slides").innerHTML=t().slides.map((s,i)=>`
+    <div class="slide ${i===slideIndex?"active":""}">
+      <div class="slide-copy">
+        <h1>${s[0]}</h1>
+        <p>${s[1]}</p>
+        <button class="btn primary" onclick="scrollToProducts()">${s[2]}</button>
+      </div>
+      <div class="slide-image-frame ${hasWatermark(slideProducts[i].id)?"watermark-wrap":""}">
+        <img src="${slideProducts[i].image}" alt="${s[0]}">
+      </div>
+    </div>
+  `).join("");
+
+  document.getElementById("dots").innerHTML=t().slides.map((_,i)=>
+    `<button aria-label="slide ${i+1}" class="dot ${i===slideIndex?"active":""}" onclick="goSlide(${i})"></button>`
+  ).join("");
+}
+
+function goSlide(i){
+  slideIndex=i;
+  renderSlides();
+  resetSlideTimer();
+}
+
+function resetSlideTimer(){
+  clearInterval(slideTimer);
+  slideTimer=setInterval(()=>{
+    slideIndex=(slideIndex+1)%3;
+    renderSlides();
+  },4500);
+}
+
+function scrollToProducts(){
+  document.getElementById("collection").scrollIntoView({behavior:"smooth"});
+}
+
+/* تكبير الصور */
+function openImageViewer(src,paintingId){
+  document.getElementById("largeImage").src=src;
+
+  document.getElementById("largeImageWrap").classList.toggle(
+    "watermark-wrap",
+    hasWatermark(paintingId)
+  );
+
+  document.getElementById("imageViewer").style.display="flex";
+}
+
+function closeImageViewer(){
+  document.getElementById("imageViewer").style.display="none";
+  document.getElementById("largeImageWrap").classList.remove("watermark-wrap");
+}
+
+/* المفضلة */
+function saveFavorites(){
+  try{
+    localStorage.setItem("zeinabArtFavorites",JSON.stringify(favorites));
+  }catch(error){
+    console.warn("تعذر حفظ المفضلة على هذا المتصفح");
+  }
+}
+
+function updateFavoriteCount(){
+  document.getElementById("favoritesCount").textContent=favorites.length;
+}
+
+function isFavorite(id){
+  return favorites.includes(id);
+}
+
+function toggleFavorite(id){
+  if(isFavorite(id)){
+    favorites=favorites.filter(item=>item!==id);
+  }else{
+    favorites.push(id);
+  }
+
+  saveFavorites();
+  updateFavoriteCount();
+  render();
+
+  if(document.getElementById("favoritesOverlay").classList.contains("open")){
+    renderFavorites();
+  }
+}
+
+function openFavorites(){
+  document.getElementById("favoritesOverlay").classList.add("open");
+  renderFavorites();
+}
+
+function closeFavorites(){
+  document.getElementById("favoritesOverlay").classList.remove("open");
+}
+
+function favoritesOverlayClick(event){
+  if(event.target.id==="favoritesOverlay"){
+    closeFavorites();
+  }
+}
+
+function renderFavorites(){
+  const container=document.getElementById("favoritesItems");
+  const favoriteProducts=productsData.filter(p=>isFavorite(p.id));
+
+  if(!favoriteProducts.length){
+    container.innerHTML=`<p class="empty" style="grid-column:1/-1">${t().favoritesEmpty}</p>`;
+    return;
+  }
+
+  container.innerHTML=favoriteProducts.map(p=>createProductCard(p)).join("");
+}
+
+/* بطاقات الرسمات */
+function createProductCard(p){
+  const price=language==="ar"?p.priceAR:p.priceFA;
+  const currency=language==="ar"?"د.ع":"تومان";
+  const favorite=isFavorite(p.id);
+
+  return `
+    <article class="product">
+      <button
+        class="favorite-btn ${favorite?"active":""}"
+        onclick="toggleFavorite(${p.id})"
+        aria-label="${favorite?t().favoriteRemove:t().favoriteAdd}"
+        title="${favorite?t().favoriteRemove:t().favoriteAdd}">
+        ${favorite?"♥️":"♡"}
+      </button>
+
+      <div class="${hasWatermark(p.id)?"watermark-wrap":""} product-image-wrap">
+        <img
+          src="${p.image}"
+          alt="ZEINAB Art #${p.id}"
+          loading="lazy"
+          onclick="openImageViewer('${p.image}',${p.id})"
+          style="cursor:zoom-in"
+        >
+      </div>
+
+      <div class="product-info">
+        <div class="artwork-code">#${p.id}</div>
+        <div class="price">${price.toLocaleString()} ${currency}</div>
+        <div class="size">Size: ${p.size||"غير محدد"}</div>
+        <button class="btn" onclick="addToCart(${p.id})">${t().add}</button>
+      </div>
+    </article>
+  `;
+}
+
+/* عرض الموقع والأقسام */
+function render(){
+  document.documentElement.lang=language;
+  document.documentElement.dir="rtl";
+
+  document.getElementById("announcement").textContent=t().announcement;
+  document.getElementById("languageBtn").textContent=t().language;
+  document.getElementById("cartLabel").textContent=t().cart;
+  document.getElementById("favoritesLabel").textContent=t().favorites;
+  document.getElementById("customTitle").textContent=t().customTitle;
+  document.getElementById("customText").textContent=t().customText;
+  document.getElementById("customBtn").textContent=t().customBtn;
+  document.getElementById("contactText").textContent=t().contactText;
+  document.getElementById("footerText").textContent=t().footerText;
+
+  document.getElementById("reportProblemButton").textContent=t().reportProblem;
+  document.getElementById("reportTitle").textContent=t().reportProblemTitle;
+  document.getElementById("reportMessage").placeholder=t().reportProblemPlaceholder;
+  document.getElementById("sendReportButton").textContent=t().sendReport;
+
+  document.getElementById("drawerTitle").textContent=t().drawerTitle;
+  document.getElementById("checkoutBtn").textContent=t().checkout;
+
+  const searchInput=document.getElementById("artworkSearch");
+  searchInput.placeholder=t().searchPlaceholder;
+
+  const isSearching=searchCode!=="";
+  const isHome=activeCategory==="All"&&!showFullGallery&&!isSearching;
+
+  document.getElementById("nav").innerHTML=t().nav.map((label,i)=>
+    `<button onclick="${
+      i===0?"showHome()":
+      i===1?"showAll()":
+      i===5?"customOrder()":
+      `filterCategory('${categoriesData[i-1].key}')`
+    }">${label}</button>`
+  ).join("");
+
+  const title=document.getElementById("productsTitle");
+
+  if(isSearching){
+    title.textContent=`${t().searchResult} #${searchCode}`;
+  }else if(isHome){
+    title.textContent=t().productsTitle;
+  }else if(activeCategory==="All"){
+    title.textContent=t().cats[0];
+  }else{
+    const index=categoriesData.findIndex(c=>c.key===activeCategory);
+    title.textContent=t().cats[index]||t().cats[0];
+  }
+
+  document.getElementById("productsSubtitle").style.display=isHome?"block":"none";
+
+  const latestSection=document.getElementById("latestProducts");
+  const productsSection=document.getElementById("products");
+
+  latestSection.style.display=isHome?"grid":"none";
+  productsSection.style.display=isHome?"none":"grid";
+
+  const latest=[...productsData].slice(-8).reverse();
+  latestSection.innerHTML=latest.map(p=>createProductCard(p)).join("");
+
+  let shown;
+
+  if(isSearching){
+    shown=productsData.filter(p=>String(p.id)===searchCode);
+  }else{
+    shown=activeCategory==="All"
+      ?productsData
+      :productsData.filter(p=>
+        Array.isArray(p.key)
+          ?p.key.includes(activeCategory)
+          :p.key===activeCategory
+      );
+  }
+
+  if(isSearching&&!shown.length){
+    productsSection.innerHTML=`<p class="search-message">${t().noSearch}</p>`;
+  }else{
+    productsSection.innerHTML=shown.map(p=>createProductCard(p)).join("");
+  }
+
+  renderSlides();
+  renderCart();
+  updateFavoriteCount();
+}
+
+function toggleLanguage(){
+  language=language==="ar"?"fa":"ar";
+  render();
+
+  const form=document.getElementById("customOrderForm");
+  if(form.style.display!=="none")renderCustomForm();
+
+  if(document.getElementById("checkoutOverlay").classList.contains("open")){
+    renderCheckoutDetails();
+    renderCheckoutLabels();
+  }
+
+  if(document.getElementById("favoritesOverlay").classList.contains("open")){
+    renderFavorites();
+  }
+}
+
+function filterCategory(key){
+  activeCategory=key;
+  showFullGallery=true;
+  searchCode="";
+  document.getElementById("artworkSearch").value="";
+  render();
+  scrollToProducts();
+}
+
+function showHome(){
+  activeCategory="All";
+  showFullGallery=false;
+  searchCode="";
+  document.getElementById("artworkSearch").value="";
+  render();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showAll(){
+  activeCategory="All";
+  showFullGallery=true;
+  searchCode="";
+  document.getElementById("artworkSearch").value="";
+  render();
+  scrollToProducts();
+}
+/* السلة */
+function addToCart(id){
+  cart.push(id);
+  renderCart();
+}
+
+function openCart(){
+  document.getElementById("cartOverlay").classList.add("open");
+  renderCart();
+}
+
+function closeCart(){
+  document.getElementById("cartOverlay").classList.remove("open");
+}
+
+function overlayClick(e){
+  if(e.target.id==="cartOverlay")closeCart();
+}
+
+function removeFromCart(index){
+  cart.splice(index,1);
+  renderCart();
+}
+
+function calculateTotal(){
+  return cart.reduce((sum,id)=>{
+    const p=productsData.find(x=>x.id===id);
+    if(!p)return sum;
+    return sum+(language==="ar"?p.priceAR:p.priceFA);
+  },0);
+}
+
+function renderCart(){
+  document.getElementById("cartCount").textContent=cart.length;
+  const items=document.getElementById("cartItems");
+
+  if(!cart.length){
+    items.innerHTML=`<div class="empty">${t().empty}</div>`;
+    document.getElementById("cartTotal").textContent="";
+    return;
+  }
+
+  items.innerHTML=cart.map((id,i)=>{
+    const p=productsData.find(x=>x.id===id);
+    if(!p)return "";
+
+    const price=language==="ar"?p.priceAR:p.priceFA;
+    const currency=language==="ar"?"د.ع":"تومان";
+
+    return `<div class="cart-item">
+      <div class="${hasWatermark(p.id)?"watermark-wrap":""} cart-image-wrap">
+        <img src="${p.image}" alt="">
+      </div>
+      <span>#${p.id} — Size: ${p.size} — ${price.toLocaleString()} ${currency}</span>
+      <button onclick="removeFromCart(${i})">${t().remove}</button>
+    </div>`;
+  }).join("");
+
+  const total=calculateTotal();
+  document.getElementById("cartTotal").textContent=
+    `${t().total}: ${total.toLocaleString()} ${language==="ar"?"د.ع":"تومان"}`;
+}
+
+/* إتمام الطلب */
+function checkout(){
+  if(!cart.length){
+    alert(t().empty);
+    return;
+  }
+
+  closeCart();
+  document.getElementById("checkoutOverlay").classList.add("open");
+  renderCheckoutLabels();
+  renderCheckoutDetails();
+}
+
+function closeCheckout(){
+  document.getElementById("checkoutOverlay").classList.remove("open");
+}
+
+function renderCheckoutLabels(){
+  const tr=t();
+
+  document.getElementById("checkoutTitle").textContent=tr.checkoutTitle;
+  document.getElementById("buyerInfoTitle").textContent=tr.buyerInfo;
+  document.getElementById("buyerNameLabel").textContent=tr.buyerName;
+  document.getElementById("buyerPhoneLabel").textContent=tr.buyerPhone;
+  document.getElementById("buyerAddressLabel").textContent=tr.buyerAddress;
+  document.getElementById("buyerHouseLabel").textContent=tr.buyerHouse;
+
+  document.getElementById("buyerNotesTitle").textContent=tr.buyerNotes;
+  document.getElementById("buyerNotesLabel").textContent=tr.buyerNotes;
+  document.getElementById("buyerNotes").placeholder=tr.buyerNotesPlaceholder;
+
+  document.getElementById("orderInfoTitle").textContent=tr.orderInfo;
+  document.getElementById("finalTotalLabel").textContent=tr.finalTotal;
+  document.getElementById("sendCheckoutButton").textContent=tr.sendCheckout;
+
+  document.getElementById("buyerName").placeholder=tr.buyerName;
+  document.getElementById("buyerPhone").placeholder=tr.buyerPhone;
+  document.getElementById("buyerAddress").placeholder=tr.buyerAddress;
+  document.getElementById("buyerHouse").placeholder=tr.buyerHouse;
+}
+
+function renderCheckoutDetails(){
+  const currency=language==="ar"?"د.ع":"تومان";
+
+  document.getElementById("checkoutOrderItems").innerHTML=cart.map(id=>{
+    const p=productsData.find(x=>x.id===id);
+    if(!p)return "";
+
+    const price=language==="ar"?p.priceAR:p.priceFA;
+
+    return `<div class="order-detail-card">
+      <div class="order-detail-head">
+        <span>${t().painting}</span>
+        <span class="order-code">#${p.id}</span>
+      </div>
+      <div class="order-detail-row"><span>${t().code}</span><strong>#${p.id}</strong></div>
+      <div class="order-detail-row"><span>${t().size}</span><strong>${p.size}</strong></div>
+      <div class="order-detail-row"><span>${t().price}</span><strong>${price.toLocaleString()} ${currency}</strong></div>
+    </div>`;
+  }).join("");
+
+  document.getElementById("checkoutFinalTotal").textContent=
+    `${calculateTotal().toLocaleString()} ${currency}`;
+}
+
+/* إرسال طلب السلة إلى واتساب */
+function sendCheckoutOrder(){
+  const form=document.getElementById("checkoutForm");
+
+  if(!form.reportValidity())return;
+
+  if(!cart.length){
+    alert(t().empty);
+    closeCheckout();
+    return;
+  }
+
+  const name=document.getElementById("buyerName").value.trim();
+  const phone=document.getElementById("buyerPhone").value.trim();
+  const address=document.getElementById("buyerAddress").value.trim();
+  const house=document.getElementById("buyerHouse").value.trim();
+  const notes=document.getElementById("buyerNotes").value.trim();
+
+  if(!name||!phone||!address||!house){
+    alert(t().fillAll);
+    return;
+  }
+
+  const currency=language==="ar"?"د.ع":"تومان";
+
+  const lines=cart.map((id,index)=>{
+    const p=productsData.find(product=>product.id===id);
+    if(!p)return "";
+
+    const price=language==="ar"?p.priceAR:p.priceFA;
+    const imageLink=new URL(p.image,window.location.href).href;
+
+    return `
+${t().painting} ${index+1}
+${t().code}: #${p.id}
+${t().size}: ${p.size}
+${t().price}: ${price.toLocaleString()} ${currency}
+${language==="ar"?"رابط الصورة":"لینک تصویر"}: ${imageLink}
+`;
+  }).join("\n--------------------\n");
+
+  const message=`
+ZEINAB ART - ${language==="ar"?"طلب جديد":"سفارش جدید"} ♡
+
+${t().buyerInfo}
+
+${t().buyerName}: ${name}
+${t().buyerPhone}: ${phone}
+${t().buyerAddress}: ${address}
+${t().buyerHouse}: ${house}
+
+--------------------
+
+${t().buyerNotes}:
+${notes||"-"}
+
+--------------------
+
+${t().orderInfo}
+
+${lines}
+
+--------------------
+
+${t().finalTotal}: ${calculateTotal().toLocaleString()} ${currency}
+`;
+
+  const whatsappLink="https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message);
+  window.open(whatsappLink,"_blank");
+
+  cart=[];
+  renderCart();
+  form.reset();
+  closeCheckout();
+}
+
+document.getElementById("checkoutOverlay").addEventListener("click",function(e){
+  if(e.target===this)closeCheckout();
+});
+
+/* نموذج طلب الرسمة الخاصة */
+function customOrder(){
+  document.getElementById("customOrderForm").style.display="block";
+  renderCustomForm();
+
+  if(paintingRequestCount===0)addPaintingRequest();
+
+  document.getElementById("customOrderForm").scrollIntoView({behavior:"smooth"});
+}
+
+function closeCustomOrder(){
+  document.getElementById("customOrderForm").style.display="none";
+}
+
+function renderCustomForm(){
+  const tr=t();
+
+  document.getElementById("customFormTitle").textContent=tr.customFormTitle;
+  document.getElementById("customBuyerInfoTitle").textContent=tr.customBuyerInfo;
+  document.getElementById("customOrderDetailsTitle").textContent=tr.customOrderDetails;
+
+  document.getElementById("customNameLabel").textContent=tr.customName;
+  document.getElementById("customPhoneLabel").textContent=tr.customPhone;
+  document.getElementById("customAddressLabel").textContent=tr.customAddress;
+  document.getElementById("customHouseLabel").textContent=tr.customHouse;
+
+  document.getElementById("customName").placeholder=tr.customName;
+  document.getElementById("customPhone").placeholder=tr.customPhone;
+  document.getElementById("customAddress").placeholder=tr.customAddress;
+  document.getElementById("customHouse").placeholder=tr.customHouse;
+
+  document.getElementById("addPaintingButton").textContent=tr.addAnother;
+  document.getElementById("submitCustomButton").textContent=tr.submitCustom;
+  document.getElementById("closeCustomButton").textContent=tr.close;
+
+  document.querySelectorAll(".painting-request").forEach((card,index)=>{
+    const labels=card.querySelectorAll("label");
+
+    labels[0].textContent=tr.customDescription;
+    labels[1].textContent=tr.customSize;
+    labels[2].textContent=tr.customColors;
+    labels[3].textContent=tr.customImages;
+    labels[4].textContent=tr.customNotes;
+
+    const title=card.querySelector("h3");
+    if(title)title.textContent=`${tr.customDescription} ${index+1}`;
+  });
+}
+
+function addPaintingRequest(){
+  const tr=t();
+  paintingRequestCount++;
+
+  const card=document.createElement("div");
+  card.className="painting-request";
+
+  card.innerHTML=`
+    <h3>${tr.customDescription} ${paintingRequestCount}</h3>
+
+    <label>${tr.customDescription}</label>
+    <textarea required></textarea>
+
+    <label>${tr.customSize}</label>
+    <input type="text" required placeholder="50x70 cm">
+
+    <label>${tr.customColors}</label>
+    <input type="text">
+
+    <label>${tr.customImages}</label>
+    <input type="file" accept="image/*" multiple>
+
+    <label>${tr.customNotes}</label>
+    <textarea></textarea>
+  `;
+
+  document.getElementById("paintingRequests").appendChild(card);
+}
+
+/* إرسال طلب الرسم الخاص ورفع الصور إلى Cloudinary */
+document.getElementById("customRequestForm").addEventListener("submit",async function(e){
+  e.preventDefault();
+
+  const form=this;
+  if(!form.reportValidity())return;
+
+  const tr=t();
+
+  const name=document.getElementById("customName").value.trim();
+  const phone=document.getElementById("customPhone").value.trim();
+  const address=document.getElementById("customAddress").value.trim();
+  const house=document.getElementById("customHouse").value.trim();
+
+  if(!name||!phone||!address||!house){
+    alert(tr.fillAll);
+    return;
+  }
+
+  const button=document.getElementById("submitCustomButton");
+  const originalButtonText=button.textContent;
+  button.disabled=true;
+
+  try{
+    let message=`🎨 ZEINAB ART\n${tr.customFormTitle}\n\n`;
+
+    message+=`--- ${tr.customBuyerInfo} ---\n`;
+    message+=`${tr.customName}: ${name}\n`;
+    message+=`${tr.customPhone}: ${phone}\n`;
+    message+=`${tr.customAddress}: ${address}\n`;
+    message+=`${tr.customHouse}: ${house}\n\n`;
+
+    message+=`--- ${tr.customOrderDetails} ---\n\n`;
+
+    const cards=document.querySelectorAll(".painting-request");
+
+    for(let index=0;index<cards.length;index++){
+      const fields=cards[index].querySelectorAll("input, textarea");
+
+      message+=`🎨 ${index+1}\n`;
+      message+=`${tr.customDescription}: ${fields[0].value}\n`;
+      message+=`${tr.customSize}: ${fields[1].value}\n`;
+      message+=`${tr.customColors}: ${fields[2].value||"-"}\n`;
+
+      const files=Array.from(fields[3].files||[]);
+
+      if(files.length){
+        message+=`${tr.customImages}:\n`;
+
+        for(const file of files){
+          if(file.size>16*1024*1024){
+            throw new Error("SIZE");
+          }
+
+          button.textContent=language==="ar"
+            ?"جاري رفع الصور..."
+            :"در حال بارگذاری تصاویر...";
+
+          const data=new FormData();
+          data.append("file",file);
+          data.append("upload_preset","zeinab_art");
+
+          const response=await fetch(
+            "https://api.cloudinary.com/v1_1/ydleun3f/image/upload",
+            {
+              method:"POST",
+              body:data
+            }
+          );
+
+          if(!response.ok){
+            const errorData=await response.json();
+            console.error("Cloudinary error:",errorData);
+            throw new Error("UPLOAD");
+          }
+
+          const result=await response.json();
+
+          if(!result.secure_url){
+            throw new Error("UPLOAD");
+          }
+
+          message+=`${result.secure_url}\n`;
+        }
+      }else{
+        message+=`${tr.customImages}: -\n`;
+      }
+
+      message+=`${tr.customNotes}: ${fields[4].value||"-"}\n\n`;
+    }
+
+    message+="--------------------\n";
+
+    message+=language==="ar"
+      ?"يرجى مراجعة روابط الصور المرفقة مع الطلب ♡"
+      :"لطفاً لینک تصاویر سفارش را بررسی کنید ♡";
+
+    const whatsappLink=
+      "https://wa.me/"+WHATSAPP_NUMBER+
+      "?text="+encodeURIComponent(message);
+
+    window.location.href=whatsappLink;
+
+  }catch(error){
+    console.error("Custom order upload error:",error);
+
+    if(error.message==="SIZE"){
+      alert(language==="ar"
+        ?"حجم الصورة أكبر من 16 MB. اختاري صورة أصغر."
+        :"حجم تصویر بیشتر از 16 مگابایت است. تصویر کوچک‌تری انتخاب کنید."
+      );
+    }else{
+      alert(language==="ar"
+        ?"تعذر رفع الصور. قد تكون خدمة رفع الصور غير متاحة أو حدث خطأ بالاتصال."
+        :"بارگذاری تصاویر انجام نشد. ممکن است سرویس در دسترس نباشد یا خطای اتصال رخ داده باشد."
+      );
+    }
+  }finally{
+    button.disabled=false;
+    button.textContent=originalButtonText;
+  }
+});
+
+/* الإبلاغ عن مشكلة */
+function openReportProblem(){
+  document.getElementById("reportOverlay").classList.add("open");
+  document.getElementById("reportMessage").value="";
+}
+
+function closeReportProblem(){
+  document.getElementById("reportOverlay").classList.remove("open");
+}
+
+document.getElementById("reportOverlay").addEventListener("click",function(e){
+  if(e.target===this)closeReportProblem();
+});
+
+document.getElementById("reportForm").addEventListener("submit",function(e){
+  e.preventDefault();
+
+  const report=document.getElementById("reportMessage").value.trim();
+
+  if(!report){
+    alert(t().reportEmpty);
+    return;
+  }
+
+  const message=
+    "ZEINAB ART\n"+
+    t().reportMessageTitle+
+    "\n\n"+report;
+
+  const whatsappLink=
+    "https://wa.me/"+WHATSAPP_NUMBER+
+    "?text="+encodeURIComponent(message);
+
+  window.location.href=whatsappLink;
+});
+
+/* تشغيل الموقع */
+render();
+resetSlideTimer();
+
+</script>
+</body>
+</html>
