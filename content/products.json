@@ -261,16 +261,6 @@
       "priceAR": 33500,
       "image": "image/26.jpg",
       "size": "80*60"
-    },
-    {
-      "key": [
-        "CharactersCars"
-      ],
-      "image": "/image/photo_2026-11-04_00-45-55.jpg",
-      "priceAR": 78,
-      "priceFA": 98,
-      "id": 27,
-      "size": "50*60"
     }
   ]
 }
